@@ -1,0 +1,45 @@
+# Configuration Settings for ArduSimple simpleRTK2B (ZED-F9P) BASE
+ublox_gps_node:
+  ros__parameters:
+    debug: 2                    
+    device: /dev/tty_Ardusimple # Your base USB port
+    frame_id: gps
+    
+    # UART1 is your USB connection to the ROS PC
+    uart1:
+      baudrate: 115200
+      
+    # NEW: UART2 is the XBee Radio Socket. This tells the board to send RTCM3 out to the radio.
+    uart2:
+      baudrate: 115200          # MUST match your XBee XCTU settings!
+      in: 0                     # None
+      out: 32                   # RTCM3 protocol identifier
+      
+    # TMODE3 Config - Survey-In
+    tmode3: 1                   # Survey-In
+    sv_in:
+      reset: True               
+      min_dur: 300              # Survey-In Minimum Duration [s]
+      acc_lim: 0.5              # Survey-In Accuracy Limit [m]
+
+    # NEW: Tell the base which specific RTK correction messages to broadcast to the radio
+    rtcm:
+      rtcm1005:
+        rate: 1  # Base Station Antenna Position (1 Hz)
+      rtcm1074:
+        rate: 1  # GPS corrections
+      rtcm1084:
+        rate: 1  # GLONASS corrections
+      rtcm1094:
+        rate: 1  # Galileo corrections
+      rtcm1230:
+        rate: 10 # GLONASS Code-Phase Biases (every 10 seconds)
+
+    inf:
+      all: true                   
+    publish:
+      all: true
+      aid:
+        hui: false
+      nav:
+        posecef: true

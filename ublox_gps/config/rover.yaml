@@ -1,0 +1,32 @@
+# Configuration Settings for ArduSimple simpleRTK2B (ZED-F9P) ROVER
+ublox_gps_node:
+  ros__parameters:
+    debug: 2                    
+    device: /dev/tty_Ardusimple # Ensure this points to the Rover's USB port
+    frame_id: rover_link
+    
+    # UART1 is your USB connection to the ROS PC
+    uart1:
+      baudrate: 115200
+      
+    # NEW: UART2 is the XBee Radio Socket. This tells the board to ACCEPT RTCM3 from the radio.
+    uart2:
+      baudrate: 115200          # MUST match your XBee XCTU settings!
+      in: 32                    # RTCM3 protocol identifier
+      out: 0                    # None
+      
+    # Ensure TMODE3 is disabled on the rover (0 = Disabled)
+    tmode3: 0
+    
+    # Navigation update rate
+    rate: 1                     # 5 Hz update rate is standard for rovers
+    nav_rate: 1
+
+    inf:
+      all: true                   
+    publish:
+      all: true
+      nav:
+        pvt: true               # Position, Velocity, Time (Main GPS topic)
+        status: true            # RTK status info
+        posecef: true
