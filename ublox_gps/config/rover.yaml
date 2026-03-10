@@ -19,7 +19,7 @@ ublox_gps_node:
     tmode3: 0
     
     # Navigation update rate
-    rate: 1                     # 5 Hz update rate is standard for rovers
+    rate: 10                     # 5 Hz update rate is standard for rovers
     nav_rate: 1
 
     inf:
