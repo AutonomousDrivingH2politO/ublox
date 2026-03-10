@@ -20,7 +20,7 @@ ublox_gps_node:
     sv_in:
       reset: True               
       min_dur: 300              # Survey-In Minimum Duration [s]
-      acc_lim: 0.5              # Survey-In Accuracy Limit [m]
+      acc_lim: 0.1              # Survey-In Accuracy Limit [m]
 
     # NEW: Tell the base which specific RTK correction messages to broadcast to the radio
     rtcm:
