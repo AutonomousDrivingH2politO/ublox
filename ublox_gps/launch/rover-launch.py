@@ -43,7 +43,7 @@ def generate_launch_description():
     config_directory = os.path.join(
         ament_index_python.packages.get_package_share_directory('ublox_gps'),
         'config')
-    params = os.path.join(config_directory, 'rover.yaml')
+    params = os.path.join(config_directory, 'use_existing.yaml')
     ublox_gps_node = launch_ros.actions.Node(package='ublox_gps',
                                              executable='ublox_gps_node',
                                              output='both',

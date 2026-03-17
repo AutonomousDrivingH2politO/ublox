@@ -1,7 +1,7 @@
 # Configuration Settings for ArduSimple simpleRTK2B (ZED-F9P) BASE
 ublox_gps_node:
   ros__parameters:
-    debug: 2                    
+    debug: 1                    
     device: /dev/tty_Ardusimple # Your base USB port
     frame_id: gps
     
@@ -20,7 +20,7 @@ ublox_gps_node:
     sv_in:
       reset: True               
       min_dur: 300              # Survey-In Minimum Duration [s]
-      acc_lim: 0.1              # Survey-In Accuracy Limit [m]
+      acc_lim: 5.0              # Survey-In Accuracy Limit [m]
 
     # NEW: Tell the base which specific RTK correction messages to broadcast to the radio
     rtcm:
